@@ -1,36 +1,6 @@
-# Workflow CA – Noroff Assignment
+# Workflow Course Assignment
 
-### README was created with help from ChatGPT.
-
-This project is a code quality and testing workflow setup for a Noroff frontend course assignment. It includes linting, formatting, unit testing, and end-to-end testing using modern tools to ensure reliable and maintainable code.
-
----
-
-## 🧰 Technologies Used
-
-- **ESLint** – Code linting
-- **Prettier** – Code formatting
-- **Vitest** – Unit testing
-- **Playwright** – End-to-end testing
-- **Husky** – Git hooks
-- **lint-staged** – Runs linters on staged Git files
-- **Live Server** – Development server
-- **dotenv** – Environment variable support
-
----
-
-## ⚙️ Features
-
-- Pre-configured ESLint and Prettier
-- Pre-commit hooks with Husky and lint-staged
-- Unit tests for:
-  - `isActivePath`
-  - `getUserName`
-- E2E tests for:
-  - Login with valid credentials
-  - Login with invalid credentials
-  - Navigate to venue detail page
-- `.env` support and `.env.example` provided
+Welcome to the **Workflow Repo CA** – a project focused on establishing a solid frontend workflow including unit tests, end-to-end tests, linting, formatting, and environment setup.
 
 ---
 
@@ -41,8 +11,6 @@ This project is a code quality and testing workflow setup for a Noroff frontend 
 ```bash
 npm run test:unit
 ```
-
-````
 
 ### 🔍 End-to-End Tests (Playwright)
 
@@ -161,11 +129,3 @@ workflow-repo-ca/
 - [LinkedIn](https://www.linkedin.com/in/petter-r%C3%B8nning-80602613a/)
 - [Portfolio](https://raddishaisportfolio.netlify.app/)
 - [Email](mailto:petter.arbeid@gmail.com)
-
----
-
-```
-
-Let me know if you want a version with screenshots or badges added!
-```
-````
