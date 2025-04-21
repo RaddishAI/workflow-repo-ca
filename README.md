@@ -75,6 +75,13 @@ TEST_USER_EMAIL=your@email.com
 TEST_USER_PASSWORD=yourpassword
 ```
 
+Or in this project:
+
+```
+TEST_USER_EMAIL=workflowuser@stud.noroff.no
+TEST_USER_PASSWORD=workflowpass
+```
+
 And make sure `.env` is ignored via `.gitignore`.
 
 Also included: `.env.example`
@@ -119,7 +126,7 @@ workflow-repo-ca/
 ## 🙌 Acknowledgements
 
 - **Noroff** – for the course material and repo template
-- **ChatGPT** – used for generating README and test inspiration
+- **ChatGPT** – used for generating README, and 24/7 sparring
 - **Teachers & Mentors** – for support during development
 
 ---
