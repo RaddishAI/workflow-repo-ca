@@ -1,16 +1,16 @@
 # Test info
 
 - Name: User can navigate to a venue detail page
-- Location: C:\Users\Petter\OneDrive\Dokumenter\Skole\Noroff\workflow-repo-ca\tests\e2e\navigation.spec.js:3:1
+- Location: C:\Users\Petter\OneDrive\Dokumenter\Skole\Noroff\workflow-repo-ca\tests\e2e\navigation.spec.js:5:1
 
 # Error details
 
 ```
-Error: page.waitForSelector: Test timeout of 30000ms exceeded.
+TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
 Call log:
   - waiting for locator('.venue-card') to be visible
 
-    at C:\Users\Petter\OneDrive\Dokumenter\Skole\Noroff\workflow-repo-ca\tests\e2e\navigation.spec.js:6:14
+    at C:\Users\Petter\OneDrive\Dokumenter\Skole\Noroff\workflow-repo-ca\tests\e2e\navigation.spec.js:13:14
 ```
 
 # Page snapshot
@@ -23,10 +23,8 @@ Call log:
         - /url: /
       - link "Home":
         - /url: /
-      - link "Login":
-        - /url: /login
-      - link "Register":
-        - /url: /register
+      - text: Hi Workflow
+      - button "Logout"
 - main:
   - heading "Welcome to this site" [level=1]
   - link:
@@ -107,16 +105,23 @@ Call log:
 
 ```ts
    1 | import { test, expect } from '@playwright/test';
-   2 |
-   3 | test('User can navigate to a venue detail page', async ({ page }) => {
-   4 |   await page.goto('http://localhost:5500/');
-   5 |
->  6 |   await page.waitForSelector('.venue-card'); // Adjust this selector to your venue list
-     |              ^ Error: page.waitForSelector: Test timeout of 30000ms exceeded.
-   7 |   await page.click('.venue-card >> nth=0'); // Click the first venue
-   8 |
-   9 |   const heading = await page.getByRole('heading', { name: /venue details/i });
-  10 |   await expect(heading).toBeVisible();
-  11 | });
+   2 | import dotenv from 'dotenv';
+   3 | dotenv.config();
+   4 |
+   5 | test('User can navigate to a venue detail page', async ({ page }) => {
+   6 |   await page.goto('http://localhost:5500/login');
+   7 |   await page.fill('input[name="email"]', process.env.TEST_USER_EMAIL);
+   8 |   await page.fill('input[name="password"]', process.env.TEST_USER_PASSWORD);
+   9 |   await page.click('button[type="submit"]');
+  10 |
+  11 |   await page.waitForURL('http://localhost:5500/');
   12 |
+> 13 |   await page.waitForSelector('.venue-card', { timeout: 10000 });
+     |              ^ TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+  14 |   await page.click('.venue-card >> nth=0');
+  15 |
+  16 |   const heading = await page.getByRole('heading', { name: /venue details/i });
+  17 |   await expect(heading).toBeVisible();
+  18 | });
+  19 |
 ```

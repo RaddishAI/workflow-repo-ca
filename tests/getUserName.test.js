@@ -1,7 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { saveUser, getUsername } from '../js/utils/storage.js';
 
-// Mock localStorage for Node environment
 global.localStorage = {
   store: {},
   getItem(key) {
