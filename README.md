@@ -1,10 +1,3 @@
-# Workflow repo for the CA
-
-Awesome — based on that image and your earlier request, here's the **full and final `README.md` file** (Markdown format) you can copy directly into your project root:
-
----
-
-````markdown
 # Workflow CA – Noroff Assignment
 
 ### README was created with help from ChatGPT.
@@ -48,6 +41,7 @@ This project is a code quality and testing workflow setup for a Noroff frontend 
 ```bash
 npm run test:unit
 ```
+
 ````
 
 ### 🔍 End-to-End Tests (Playwright)
@@ -174,3 +168,4 @@ workflow-repo-ca/
 
 Let me know if you want a version with screenshots or badges added!
 ```
+````
