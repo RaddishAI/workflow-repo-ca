@@ -7,19 +7,25 @@
   "scripts": {
     "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
     "lint": "eslint . --ext .js",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "start": "live-server --port=5500",
+    "test": "vitest",
+    "test:e2e": "npx playwright test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "dotenv": "^16.5.0",
     "eslint": "^9.25.0",
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-prettier": "^5.2.6",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "prettier": "^3.5.3",
-    "tailwindcss": "^3.4.12"
+    "tailwindcss": "^3.4.12",
+    "vitest": "^3.1.2"
   },
   "dependencies": {
     "workflow-repo": "file:"
