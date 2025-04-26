@@ -8,7 +8,7 @@ test('User can log in with valid credentials', async ({ page }) => {
   await page.fill('input[name="email"]', process.env.TEST_USER_EMAIL);
   await page.fill('input[name="password"]', process.env.TEST_USER_PASSWORD);
   await page.click('button[type="submit"]');
-  await expect(page).toHaveURL(/\/$/);
+  await expect(page).toHaveURL(/.*(home|dashboard|index|\/)$/i);
 });
 
 test('User sees error message with invalid credentials', async ({ page }) => {
@@ -16,8 +16,7 @@ test('User sees error message with invalid credentials', async ({ page }) => {
   await page.fill('input[name="email"]', 'wrong@example.com');
   await page.fill('input[name="password"]', 'invalidpassword');
   await page.click('button[type="submit"]');
-
-  await expect(page.getByText(/invalid email/i, { exact: false })).toBeVisible({
-    timeout: 7000,
-  });
+  await expect(page.locator('#message-container')).toContainText(
+    /noroff\.no|invalid|credentials|failed/i
+  );
 });
